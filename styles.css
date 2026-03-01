@@ -602,6 +602,7 @@ section {
     height: 40px;
     background: var(--rule);
     flex-shrink: 0;
+    margin: 0 var(--s3);
 }
 
 .stat-val {
@@ -1190,6 +1191,15 @@ footer p {
     .section-num { display: none; }
 
     .stat-item { padding: var(--s2); }
+
+    .exp-gallery-item--half {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .exp-gallery-item--half img {
+        height: 200px;
+    }
 
     footer p { font-size: 0.65rem; }
 }
