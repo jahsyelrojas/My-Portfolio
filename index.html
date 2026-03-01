@@ -1,132 +1,757 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jahsyel Rojas - Portfolio</title>
-    <link rel="icon" href="photos/tab_icon.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <title>Jahsyel Rojas | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Unbounded:wght@700;900&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-
 <body>
-    <header>
-        <div class="container">
-            <h1>Jahsyel Z. Rojas Ortiz</h1>
-            <p>Software Developer | Developer | Programmer</p>
-            <nav>
-                <ul>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <section id="about" class="container">
-        <h2>About Me</h2>
-        <div class="profile-pic"></div>
-        <p>
-            Hi! I’m a Software Engineering student at the University of Puerto Rico, Mayagüez, with a strong background in software development, data analysis, and front-end design. My experience includes working on real-time monitoring systems for wind turbines, fluid dynamic simulations, laser tracking systems, and much more. I'm passionate about developing technology solutions that positively impact people, leveraging both my technical and creative skills.
-        </p>
-    </section>
+    <canvas id="starfield"></canvas>
 
-    <section id="skills" class="container">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <div class="skill">
-                <i class="fa-brands fa-python"></i>
-                <h3>Python & C++</h3>
-                <p>Experience in algorithms, data analysis, and systems development using Python and C++.</p>
-            </div>
-            <div class="skill">
-                <i class="fab fa-html5"></i>
-                <i class="fab fa-css3-alt"></i>
-                <h3>HTML & CSS</h3>
-                <p>Expert in building responsive and semantic websites using HTML5 & CSS3.</p>
-            </div>
-            <div class="skill">
-                <i class="fab fa-js-square"></i>
-                <h3>JavaScript</h3>
-                <p>Skilled in front-end development and building dynamic web applications.</p>
-            </div>
-            <div class="skill">
-                <i class="fa-brands fa-docker"></i>
-                <h3>Docker & DevOps</h3>
-                <p>Experienced in containerization and continuous integration/continuous delivery (CI/CD) pipelines.</p>
-            </div>
-            <div class="skill">
-                <i class="fa-brands fa-figma"></i>
-                <h3>UX/UI Design</h3>
-                <p>Proficient in Figma and designing user-friendly interfaces.</p>
-            </div>
-            <div class="skill">
-                <i class="fa-solid fa-microchip"></i>
-                <h3>Arduino & Raspberry Pi</h3>
-                <p>Experience in hardware programming and sensor data acquisition with Arduino and Raspberry Pi.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="container">
-        <h2>Experience</h2>
-        <div class="job">
-            <h3>Engineering Intern | UNM Consortium of Hybrid Resilient Energy Systems</h3>
-            <p><em>May 2024 - Aug 2024</em></p>
-            <ul>
-                <li>Developed algorithms for laser tracking systems and conducted fluid dynamic simulations.</li>
-                <li>Worked on sensor integration for flood detection systems using Arduino and Python.</li>
-                <li>Processed and analyzed highway traffic data using SUMO and Python for simulation accuracy.</li>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-text">JR</span>
+                <span class="logo-dot"></span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link nav-link-cta">Let's Connect</a></li>
             </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <div class="job">
-            <h3>Developer | Loxodon-1 UPRM Liquid Rocket Engine Project</h3>
-            <p><em>Jan 2024 - Present</em></p>
-            <ul>
-                <li>Co-led the Automation Division, developing systems for sensor data acquisition and control.</li>
-                <li>Built simulations for managed lanes and optimized traffic flow using Python and Arduino.</li>
-                <li>Worked on UI/UX for a mobile app related to Puerto Rico’s public transportation system.</li>
-            </ul>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-content">
+            <p class="hero-greeting">Hey, I'm</p>
+            <h1 class="hero-name">
+                <span>JAHSYEL</span>
+                <span class="name-last">ROJAS</span>
+            </h1>
+            <div class="hero-role">
+                <span class="role-prefix">// </span>
+                <span id="typed-text"></span>
+                <span class="cursor-blink">|</span>
+            </div>
+<div class="hero-cta">
+                <a href="#contact" class="btn btn-glow">
+                    <span>Let's Connect</span>
+                    <i data-lucide="arrow-right"></i>
+                </a>
+                <a href="#experience" class="btn btn-outline"><span>View Work</span></a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="orb-wrapper">
+                <div class="orb-glow-bg"></div>
+                <div class="orb"></div>
+                <div class="orb-ring ring-a"></div>
+                <div class="orb-ring ring-b"></div>
+                <div class="orb-dot dot-1"></div>
+                <div class="orb-dot dot-2"></div>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <div class="scroll-line-anim"></div>
+            <span>SCROLL</span>
         </div>
     </section>
 
-    <section id="projects" class="container">
-        <h2>Recent Projects</h2>
-        <div class="project">
-            <img src="photos/project1.png" alt="Project Image">
-            <h3>Real-Time Wind Turbine Monitoring System</h3>
-            <p>Developed a health monitoring system for wind turbines using Python, Dewesoft, and Prophesee SDK.</p>
-        </div>
-        <div class="project">
-            <img src="photos/project2.PNG" alt="Project Image">
-            <h3>Flood Detection System</h3>
-            <p>Implemented a sensor-based flood detection system using Arduino and Python, providing real-time data visualization.</p>
+    <section id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-num">01</span>
+                <span class="section-tag">// ABOUT.ME</span>
+                <h2 class="section-title">Who Am I?</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-photo-wrap">
+                    <div class="photo-orbit orbit-1">
+                        <div class="orbit-dot cyan-dot"></div>
+                    </div>
+                    <div class="photo-orbit orbit-2">
+                        <div class="orbit-dot purple-dot"></div>
+                    </div>
+                    <div class="profile-photo-container">
+                        <div class="profile-photo"></div>
+                        <div class="photo-glow"></div>
+                    </div>
+                </div>
+                <div class="about-info">
+                    <p class="about-text">
+                        I'm a dual-degree student at <span class="text-hi">the University of Puerto Rico, Mayagüez</span>,
+                        studying <span class="text-accent">Software Engineering</span> and <span class="text-accent">Electrical Engineering</span>
+                        with a focus in <span class="text-accent">Control Systems</span> — graduating May 2027 with a <span class="text-hi">3.7 GPA</span>.
+                    </p>
+                    <p class="about-text">
+                        I've built <span class="text-accent">GNSS navigation models at Blue Origin</span>, working on GN&amp;C software
+                        problems where accuracy, timing, and clean interfaces are non-negotiable. At the
+                        <span class="text-hi">U.S. Department of Energy</span>, I supported validation of nuclear hybrid energy
+                        systems through system-level testing and Hardware-in-the-Loop verification.
+                    </p>
+                    <p class="about-text">
+                        At UPRM, I lead engineering efforts in flight projects. On the
+                        <span class="text-accent">SAE UPRM Aero Design Team</span>, I work on autonomous missions, PID tuning,
+                        and onboard electronics. As <span class="text-hi">Lead Avionics Engineer</span>
+                        for <span class="text-accent">LOXODON-1</span> — Puerto Rico's student liquid rocket engine — I own
+                        the full embedded control and telemetry stack, from sensors and data pipelines to ground software and test operations.
+                    </p>
+                    <p class="about-text about-text-close">
+                        The thread through it all: GN&amp;C-adjacent work at the intersection of
+                        <span class="text-accent">estimation, control, embedded software</span>, and real hardware.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item reveal">
+                            <span class="stat-val">3</span>
+                            <span class="stat-lbl">Internships</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item reveal">
+                            <span class="stat-val">3.7</span>
+                            <span class="stat-lbl">GPA</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item reveal">
+                            <span class="stat-val">5+</span>
+                            <span class="stat-lbl">Projects</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item reveal">
+                            <span class="stat-val">GN&amp;C</span>
+                            <span class="stat-lbl">Focus Area</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="contact" class="container">
-        <h2>Contact</h2>
-        <p>If you'd like to get in touch, feel free to reach out via email at 
-            <a href="mailto:jahsyel.rojas@upr.edu">jahsyel.rojas@upr.edu</a> or connect on 
-            <a href="www.linkedin.com/in/jahsyel-rojas-software-developer" target="_blank">LinkedIn</a>.
-        </p>
-        <div class="social-icons">
-            <a href="www.linkedin.com/in/jahsyel-rojas-software-developer" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/jahsyelrojas" target="_blank"><i class="fab fa-github"></i></a>
+    <section id="skills">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-num">02</span>
+                <span class="section-tag">// CAPABILITIES</span>
+                <h2 class="section-title">Skills &amp; Technologies</h2>
+            </div>
+            <div class="skills-table">
+                <div class="skill-row reveal">
+                    <div class="skill-row-label">
+                        <i data-lucide="code-2"></i>
+                        <span>Languages</span>
+                    </div>
+                    <div class="tag-list">
+                        <span class="tag">Python</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">C</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">React</span>
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">Rust</span>
+                        <span class="tag">Shell</span>
+                        <span class="tag">Bash</span>
+                    </div>
+                </div>
+                <div class="skill-row reveal">
+                    <div class="skill-row-label">
+                        <i data-lucide="satellite"></i>
+                        <span>GN&amp;C</span>
+                    </div>
+                    <div class="tag-list">
+                        <span class="tag">GN&amp;C Flight Algorithms</span>
+                        <span class="tag">GNSS</span>
+                        <span class="tag">RTK</span>
+                        <span class="tag">Relative Navigation</span>
+                        <span class="tag">Orbital Mechanics</span>
+                        <span class="tag">Dynamics</span>
+                        <span class="tag">6-DOF Flight Simulation</span>
+                        <span class="tag">Trajectory Design</span>
+                        <span class="tag">Monte Carlo Analysis</span>
+                        <span class="tag">State Estimation (EKF/UKF)</span>
+                        <span class="tag">Feedback Control Systems</span>
+                        <span class="tag">Sensor Fusion</span>
+                    </div>
+                </div>
+                <div class="skill-row reveal">
+                    <div class="skill-row-label">
+                        <i data-lucide="cpu"></i>
+                        <span>Embedded</span>
+                    </div>
+                    <div class="tag-list">
+                        <span class="tag">Embedded Systems</span>
+                        <span class="tag">Embedded Software</span>
+                        <span class="tag">Serial Communication Protocols</span>
+                        <span class="tag">HIL / SIL</span>
+                        <span class="tag">Sensor Fusion</span>
+                        <span class="tag">Computer Vision</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">OOP</span>
+                        <span class="tag">High Performance Computing</span>
+                        <span class="tag">Data Structures</span>
+                    </div>
+                </div>
+                <div class="skill-row reveal">
+                    <div class="skill-row-label">
+                        <i data-lucide="wrench"></i>
+                        <span>Tools &amp; Frameworks</span>
+                    </div>
+                    <div class="tag-list">
+                        <span class="tag">Linux / Unix</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">GitLab</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">JIRA</span>
+                        <span class="tag">Simulink</span>
+                        <span class="tag">Siemens NX</span>
+                        <span class="tag">Arduino</span>
+                        <span class="tag">Raspberry Pi</span>
+                        <span class="tag">PyQt</span>
+                        <span class="tag">ArduPilot</span>
+                        <span class="tag">Mission Planner</span>
+                        <span class="tag">RTOS</span>
+                        <span class="tag">ROS2</span>
+                        <span class="tag">Multithreading</span>
+                        <span class="tag">Scheduling</span>
+                        <span class="tag">ADC / DAC Systems</span>
+                        <span class="tag">Control Electronics</span>
+                        <span class="tag">TCP/IP</span>
+                        <span class="tag">Oscilloscopes</span>
+                        <span class="tag">Debugger</span>
+                        <span class="tag">Software Architecture</span>
+                    </div>
+                </div>
+                <div class="skill-row reveal">
+                    <div class="skill-row-label">
+                        <i data-lucide="users"></i>
+                        <span>Soft Skills</span>
+                    </div>
+                    <div class="tag-list">
+                        <span class="tag">Project Management</span>
+                        <span class="tag">Leadership &amp; Mentorship</span>
+                        <span class="tag">Agile Methodology</span>
+                        <span class="tag">Rapid Learning &amp; Adaptation</span>
+                        <span class="tag">System-level Problem Solving</span>
+                        <span class="tag">Proactiveness</span>
+                        <span class="tag">Technical Communication</span>
+                        <span class="tag">Cross-functional Collaboration</span>
+                        <span class="tag">First-principles Engineering</span>
+                        <span class="tag">Failure Analysis</span>
+                        <span class="tag">Root Cause Analysis</span>
+                        <span class="tag">High-ownership Mindset</span>
+                        <span class="tag">Debugging Complex Systems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-num">03</span>
+                <span class="section-tag">// EXPERIENCE</span>
+                <h2 class="section-title">My Journey</h2>
+            </div>
+            <div class="tabs-container">
+                <div class="tab-nav">
+                    <button class="tab-btn active" data-tab="internships">
+                        <i data-lucide="rocket"></i>
+                        <span>Experience</span>
+                    </button>
+                    <button class="tab-btn" data-tab="extracurricular">
+                        <i data-lucide="star"></i>
+                        <span>Extracurricular</span>
+                    </button>
+                    <button class="tab-btn" data-tab="projects">
+                        <i data-lucide="git-branch"></i>
+                        <span>Personal Projects</span>
+                    </button>
+                </div>
+
+                <div class="tab-panels">
+                    <div class="tab-panel active" id="panel-internships">
+                        <div class="exp-entry reveal">
+                            <div class="exp-entry-top">
+                                <div class="exp-title-group">
+                                    <h3 class="exp-role">GN&amp;C Software Engineer Intern</h3>
+                                    <p class="exp-org">Blue Origin</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-date"><i data-lucide="calendar"></i> Spring 2026</span>
+                                    <span class="exp-loc"><i data-lucide="map-pin"></i> Kent, WA</span>
+                                </div>
+                            </div>
+                            <ul class="exp-bullets">
+                                <li>Developed high-performance C++ GNSS model infrastructure integrated into the navigation Software-in-the-Loop (SIL) stack, delivered as a reusable toolbox across multiple programs</li>
+                                <li>Modeled GNSS observables (pseudorange/Doppler, C/N0) with receiver clock, iono/tropo, multipath, and noise; validated vs MATLAB and flight data, optimizing Monte Carlo workflows to cut runtime up to 75%</li>
+                                <li>Built an interactive GUI to visualize GNSS constellation and trajectory prediction outputs from SIL runs, accelerating debugging and test readiness for end-to-end nav performance</li>
+                                <li>Implemented RTK (Real-Time Kinematic) functionality using real flight telemetry, producing evidence to support RTK as a viable baseline upgrade for relative navigation</li>
+                                <li>Applied orbital mechanics, 6-DOF simulation, feedback controls, and trajectory optimization; integrated GNSS outputs into the EKF interface</li>
+                            </ul>
+                            <div class="tag-list">
+                                <span class="tag">C++</span>
+                                <span class="tag">GNSS / RTK</span>
+                                <span class="tag">SIL</span>
+                                <span class="tag">EKF</span>
+                                <span class="tag">Monte Carlo</span>
+                                <span class="tag">Orbital Mechanics</span>
+                                <span class="tag">6-DOF</span>
+                            </div>
+                        </div>
+
+                        <div class="exp-entry reveal">
+                            <div class="exp-entry-top">
+                                <div class="exp-title-group">
+                                    <h3 class="exp-role">Cyber-Physical Systems Engineering Intern</h3>
+                                    <p class="exp-org">U.S. Department of Energy (DOE)</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-date"><i data-lucide="calendar"></i> Summer 2025</span>
+                                    <span class="exp-loc"><i data-lucide="map-pin"></i> Morgantown, WV</span>
+                                </div>
+                            </div>
+                            <ul class="exp-bullets">
+                                <li>Developed high-fidelity dynamic models of Small Modular Reactor–Gas Turbine (SMR–GT) hybrid systems using MATLAB Simulink/Simscape and Ebsilon, focusing on thermal energy storage and power control</li>
+                                <li>Performed Hardware-in-the-Loop (HIL) simulations to validate integrated Cyber-Physical Systems for transient nuclear hybrid energy operations using Simulink, dSpace, and OPAL-RT</li>
+                                <li>Modeled and analyzed SMR-TES (Thermal Energy Storage) and SMR-SOFC (Solid Oxide Fuel Cell) systems to optimize performance and energy dispatch</li>
+                                <li>Integrated CAN bus protocols and parsed DBC files for data acquisition and hardware interfacing</li>
+                            </ul>
+                            <div class="tag-list">
+                                <span class="tag">MATLAB/Simulink</span>
+                                <span class="tag">HIL</span>
+                                <span class="tag">dSpace</span>
+                                <span class="tag">OPAL-RT</span>
+                                <span class="tag">CAN Bus</span>
+                                <span class="tag">Simscape</span>
+                            </div>
+                        </div>
+
+                        <div class="exp-entry reveal">
+                            <div class="exp-entry-top">
+                                <div class="exp-title-group">
+                                    <h3 class="exp-role">Embedded Software Engineer Intern</h3>
+                                    <p class="exp-org">University of New Mexico (UNM) CHRES &middot; DOE Fellowship</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-date"><i data-lucide="calendar"></i> Summer 2024</span>
+                                    <span class="exp-loc"><i data-lucide="map-pin"></i> Albuquerque, NM</span>
+                                </div>
+                            </div>
+                            <ul class="exp-bullets">
+                                <li>Designed computer vision algorithms in Python and simulated them in MATLAB for real-time data processing, angle calculation, and health monitoring of propellant blades using a neuromorphic camera</li>
+                                <li>Research presented at the National Energy Technology Laboratory (NETL) conference</li>
+                                <li>Utilized Docker for containerization and managed databases for data storage and retrieval from sensors</li>
+                            </ul>
+                            <div class="tag-list">
+                                <span class="tag">Python</span>
+                                <span class="tag">MATLAB</span>
+                                <span class="tag">Computer Vision</span>
+                                <span class="tag">Neuromorphic Camera</span>
+                                <span class="tag">Docker</span>
+                            </div>
+                        </div>
+
+                        <div class="exp-entry reveal">
+                            <div class="exp-entry-top">
+                                <div class="exp-title-group">
+                                    <h3 class="exp-role">Front-End Engineer</h3>
+                                    <p class="exp-org">Economic &amp; Business Development Center</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-date"><i data-lucide="calendar"></i> Fall 2024 — Fall 2025</span>
+                                    <span class="exp-loc"><i data-lucide="map-pin"></i> Puerto Rico</span>
+                                </div>
+                            </div>
+                            <ul class="exp-bullets">
+                                <li>Collaborated with faculty, staff, and marketing teams to design and structure web pages highlighting cohort impact, press releases, and entrepreneurship resources across economic development initiatives</li>
+                                <li>Led front-end updates and resolved technical issues, improving mobile responsiveness and user experience while ensuring compliance with institutional branding and digital accessibility standards</li>
+                            </ul>
+                            <div class="tag-list">
+                                <span class="tag">HTML / CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Responsive Design</span>
+                                <span class="tag">Accessibility</span>
+                                <span class="tag">UI/UX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="panel-extracurricular">
+                        <div class="exp-entry reveal">
+                            <div class="exp-entry-top">
+                                <div class="exp-title-group">
+                                    <h3 class="exp-role">Avionics &amp; GNC Software Engineer</h3>
+                                    <p class="exp-org">SAE UPRM Aero-Design</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-date"><i data-lucide="calendar"></i> May 2025 — Present</span>
+                                    <span class="exp-loc"><i data-lucide="map-pin"></i> Mayagüez, PR</span>
+                                </div>
+                            </div>
+                            <ul class="exp-bullets">
+                                <li>Programmed autonomous ArduPilot missions (takeoff, waypoint navigation, precision landing) and tuned PID flight performance using log analysis to refine attitude control, IMU parameters, and compass calibration</li>
+                                <li>Integrated onboard avionics systems with GPS, LiDAR, and telemetry modules using ArduPilot protocols (CAN, UART, I²C) and contributed to the aircraft's autonomous command and control architecture</li>
+                                <li>Developed a fully autonomous payload consisting of a robotic car using ROS2, a LiDAR-based SLAM for 3D mapping, and OpenMV for computer vision-based aircraft identification</li>
+                            </ul>
+                            <div class="tag-list">
+                                <span class="tag">ArduPilot</span>
+                                <span class="tag">ROS2</span>
+                                <span class="tag">LiDAR SLAM</span>
+                                <span class="tag">PID Tuning</span>
+                                <span class="tag">OpenMV</span>
+                                <span class="tag">CAN / UART</span>
+                            </div>
+                            <div class="exp-gallery">
+                                <figure class="exp-gallery-item">
+                                    <img src="photos/sae-payload-landing.jpeg" alt="SAE plane on fiducial marker" loading="lazy">
+                                    <figcaption>Precision landing on fiducial markers</figcaption>
+                                </figure>
+                                <figure class="exp-gallery-item">
+                                    <img src="photos/sae-side-view.jpeg" alt="SAE plane side view" loading="lazy">
+                                    <figcaption>Autonomous capture of payload</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="exp-entry reveal">
+                            <div class="exp-entry-top">
+                                <div class="exp-title-group">
+                                    <h3 class="exp-role">Lead Avionics Engineer</h3>
+                                    <p class="exp-org">Liquid Propulsion Team &middot; LOXODON-1</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-date"><i data-lucide="calendar"></i> Fall 2023 — Fall 2025</span>
+                                    <span class="exp-loc"><i data-lucide="map-pin"></i> Mayagüez, PR</span>
+                                </div>
+                            </div>
+                            <ul class="exp-bullets">
+                                <li>Co-authored the Critical Design Review (CDR), detailing system automations, controls, and telemetry systems</li>
+                                <li>Automated sensor data acquisition, ball and solenoid valve control, state machines, and ignition sequences using C++ and Arduino</li>
+                                <li>Built a full-stack remote telemetry platform (Docker, JavaScript, Flask, MQTT, TCP/IP, InfluxDB) for live data acquisition from 10+ sensors including pressure transducers, flow meters, load cells, and thermocouples</li>
+                            </ul>
+                            <div class="tag-list">
+                                <span class="tag">C++ / Arduino</span>
+                                <span class="tag">Docker</span>
+                                <span class="tag">Flask</span>
+                                <span class="tag">MQTT</span>
+                                <span class="tag">InfluxDB</span>
+                                <span class="tag">TCP/IP</span>
+                                <span class="tag">State Machines</span>
+                            </div>
+                            <div class="exp-gallery">
+                                <figure class="exp-gallery-item exp-gallery-item--half">
+                                    <img src="photos/loxodon-dashboard.png" alt="LOXODON-1 telemetry dashboard" loading="lazy">
+                                    <figcaption>LOXODON-1 engine controller &amp; telemetry dashboard</figcaption>
+                                </figure>
+                                <figure class="exp-gallery-item exp-gallery-item--half exp-gallery-item--contain">
+                                    <img src="photos/loxodon-pid.png" alt="LOXODON-1 P&ID diagram" loading="lazy">
+                                    <figcaption>P&amp;ID with sensors &amp; interlocks mapped out</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="exp-entry reveal">
+                            <div class="exp-entry-top">
+                                <div class="exp-title-group">
+                                    <h3 class="exp-role">Computer Hardware Engineer</h3>
+                                    <p class="exp-org">NASA L'SPACE Mission Concept Academy</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-date"><i data-lucide="calendar"></i> Spring 2025</span>
+                                    <span class="exp-loc"><i data-lucide="map-pin"></i> Remote / NASA</span>
+                                </div>
+                            </div>
+                            <ul class="exp-bullets">
+                                <li>Led C&amp;DH/avionics subsystem design for a robotic spacecraft mission through the NASA lifecycle to PDR, owning requirements flow down, architecture, and interfaces</li>
+                                <li>Ran architecture trade studies and sizing/budgeting (mass/power/cost/schedule) to down-select designs aligned with science objectives</li>
+                                <li>Defined flight data network interfaces: MIL-STD-1553 (BC/RT roles, message schedule, latency/throughput budgets) and SpaceWire (link-rate allocation, routing, time-distribution), documented in ICDs</li>
+                                <li>Modeled avionics mechanical/electrical interfaces in Siemens NX and evaluated cFS for command/telemetry routing and scalable flight software integration</li>
+                            </ul>
+                            <div class="tag-list">
+                                <span class="tag">MIL-STD-1553</span>
+                                <span class="tag">SpaceWire</span>
+                                <span class="tag">cFS</span>
+                                <span class="tag">Siemens NX</span>
+                                <span class="tag">NASA Lifecycle</span>
+                                <span class="tag">C&amp;DH</span>
+                            </div>
+                        </div>
+
+                        <div class="exp-entry reveal">
+                            <div class="exp-entry-top">
+                                <div class="exp-title-group">
+                                    <h3 class="exp-role">Secretary</h3>
+                                    <p class="exp-org">IEEE UPRM Branch</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-date"><i data-lucide="calendar"></i> Spring 2024 — Winter 2024</span>
+                                    <span class="exp-loc"><i data-lucide="map-pin"></i> Mayagüez, PR</span>
+                                </div>
+                            </div>
+                            <ul class="exp-bullets">
+                                <li>Managed administrative tasks and facilitated effective communication across branch members, fostering teamwork and proactive engagement</li>
+                                <li>Efficiently organized schedules for meetings, events, and appointments and provided administrative support to branch leadership</li>
+                                <li>Demonstrated strong time management and task prioritization across concurrent branch initiatives</li>
+                            </ul>
+                            <div class="tag-list">
+                                <span class="tag">Leadership</span>
+                                <span class="tag">Project Management</span>
+                                <span class="tag">Communication</span>
+                                <span class="tag">IEEE</span>
+                            </div>
+                        </div>
+
+                        <div class="exp-entry reveal">
+                            <div class="exp-entry-top">
+                                <div class="exp-title-group">
+                                    <h3 class="exp-role">Simulation Engineer</h3>
+                                    <p class="exp-org">SEMPACT</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-date"><i data-lucide="calendar"></i> Fall 2023 — Spring 2024</span>
+                                    <span class="exp-loc"><i data-lucide="map-pin"></i> Puerto Rico</span>
+                                </div>
+                            </div>
+                            <ul class="exp-bullets">
+                                <li>Employed Python to program and oversee traffic simulations using the SUMO framework, with a specific focus on modeling highway behavior and managed lanes</li>
+                                <li>Processed transportation data to generate algorithmic scenarios and optimize lane-based decision making and data throughput</li>
+                            </ul>
+                            <div class="tag-list">
+                                <span class="tag">Python</span>
+                                <span class="tag">SUMO</span>
+                                <span class="tag">Traffic Simulation</span>
+                                <span class="tag">Data Analysis</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-panel" id="panel-projects">
+                        <div class="projects-list">
+                            <div class="project-entry reveal">
+                                <span class="project-num">01</span>
+                                <div class="project-entry-body">
+                                    <h3 class="project-entry-title">Avionics GNC Design &amp; Simulation</h3>
+                                    <p class="project-entry-desc">Avionics guidance system design and SIL simulation in MATLAB/Simulink and FlightGear. Implemented LQR control and Kalman filtering for flight stability and state estimation.</p>
+                                    <div class="tag-list">
+                                        <span class="tag">MATLAB/Simulink</span>
+                                        <span class="tag">LQR</span>
+                                        <span class="tag">Kalman Filter</span>
+                                        <span class="tag">FlightGear</span>
+                                        <span class="tag">SIL</span>
+                                    </div>
+                                </div>
+                                <div class="project-entry-links">
+                                    <a href="#" class="proj-link" aria-label="View on GitHub"><i data-lucide="github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="project-entry reveal">
+                                <span class="project-num">02</span>
+                                <div class="project-entry-body">
+                                    <h3 class="project-entry-title">Flight Simulation</h3>
+                                    <p class="project-entry-desc">6-DOF flight simulation built with Python and interfaced with FlightGear for real-time visualization of aircraft flight dynamics and control responses.</p>
+                                    <div class="tag-list">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">FlightGear</span>
+                                        <span class="tag">Flight Dynamics</span>
+                                        <span class="tag">6-DOF</span>
+                                    </div>
+                                </div>
+                                <div class="project-entry-links">
+                                    <a href="#" class="proj-link" aria-label="View on GitHub"><i data-lucide="github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="project-entry reveal">
+                                <span class="project-num">03</span>
+                                <div class="project-entry-body">
+                                    <h3 class="project-entry-title">Intelligent AI Chatbot</h3>
+                                    <p class="project-entry-desc">Conversational chatbot built with neural networks, capable of understanding and generating context-aware responses through deep learning and NLP techniques.</p>
+                                    <div class="tag-list">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Neural Networks</span>
+                                        <span class="tag">NLP</span>
+                                        <span class="tag">Deep Learning</span>
+                                    </div>
+                                </div>
+                                <div class="project-entry-links">
+                                    <a href="https://github.com/jahsyelrojas/Intelligent-Ai-Chatbot" target="_blank" rel="noopener noreferrer" class="proj-link" aria-label="View on GitHub"><i data-lucide="github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="project-entry reveal">
+                                <span class="project-num">04</span>
+                                <div class="project-entry-body">
+                                    <h3 class="project-entry-title">Live Face Recognition System</h3>
+                                    <p class="project-entry-desc">Real-time face detection and recognition system using machine learning and computer vision for live identity identification from a video feed.</p>
+                                    <div class="tag-list">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Machine Learning</span>
+                                        <span class="tag">OpenCV</span>
+                                        <span class="tag">Computer Vision</span>
+                                    </div>
+                                </div>
+                                <div class="project-entry-links">
+                                    <a href="https://github.com/jahsyelrojas/Live_Face_Recognition" target="_blank" rel="noopener noreferrer" class="proj-link" aria-label="View on GitHub"><i data-lucide="github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="project-entry reveal">
+                                <span class="project-num">05</span>
+                                <div class="project-entry-body">
+                                    <h3 class="project-entry-title">Self-Driving AI Car Simulation</h3>
+                                    <p class="project-entry-desc">Autonomous vehicle simulation using AI and reinforcement learning, training a car to navigate environments and make driving decisions without human input.</p>
+                                    <div class="tag-list">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Reinforcement Learning</span>
+                                        <span class="tag">AI</span>
+                                        <span class="tag">Simulation</span>
+                                    </div>
+                                </div>
+                                <div class="project-entry-links">
+                                    <a href="https://github.com/jahsyelrojas/Self-driving-AI-car-Simulation" target="_blank" rel="noopener noreferrer" class="proj-link" aria-label="View on GitHub"><i data-lucide="github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="project-entry reveal">
+                                <span class="project-num">06</span>
+                                <div class="project-entry-body">
+                                    <h3 class="project-entry-title">Text Generation with RNNs</h3>
+                                    <p class="project-entry-desc">Text generation model using Recurrent Neural Networks trained to learn sequence patterns and produce coherent text output from a given prompt or seed.</p>
+                                    <div class="tag-list">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">RNN</span>
+                                        <span class="tag">Deep Learning</span>
+                                        <span class="tag">NLP</span>
+                                    </div>
+                                </div>
+                                <div class="project-entry-links">
+                                    <a href="https://github.com/jahsyelrojas/Generatting_Txt_with_Neural_Networks" target="_blank" rel="noopener noreferrer" class="proj-link" aria-label="View on GitHub"><i data-lucide="github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="project-entry reveal">
+                                <span class="project-num">07</span>
+                                <div class="project-entry-body">
+                                    <h3 class="project-entry-title">Network Tracker</h3>
+                                    <p class="project-entry-desc">Network packet tracking tool using Python and Wireshark to capture and analyze traffic, with geolocation data visualized on Google Maps.</p>
+                                    <div class="tag-list">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Wireshark</span>
+                                        <span class="tag">Network Analysis</span>
+                                        <span class="tag">Google Maps API</span>
+                                    </div>
+                                </div>
+                                <div class="project-entry-links">
+                                    <a href="https://github.com/jahsyelrojas/Network-Tracking-with-Google-Maps-and-WireShark" target="_blank" rel="noopener noreferrer" class="proj-link" aria-label="View on GitHub"><i data-lucide="github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="project-entry reveal">
+                                <span class="project-num">08</span>
+                                <div class="project-entry-body">
+                                    <h3 class="project-entry-title">Phishing Attack Simulator</h3>
+                                    <p class="project-entry-desc">Controlled phishing simulation using Gophish to test organizational security awareness, track campaign results, and identify social engineering vulnerabilities.</p>
+                                    <div class="tag-list">
+                                        <span class="tag">Gophish</span>
+                                        <span class="tag">Social Engineering</span>
+                                        <span class="tag">Security Testing</span>
+                                        <span class="tag">Python</span>
+                                    </div>
+                                </div>
+                                <div class="project-entry-links">
+                                    <a href="#" class="proj-link" aria-label="View on GitHub"><i data-lucide="github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="project-entry reveal">
+                                <span class="project-num">09</span>
+                                <div class="project-entry-body">
+                                    <h3 class="project-entry-title">Host-Based Intrusion Detection</h3>
+                                    <p class="project-entry-desc">HIDS implementation using OSSEC to monitor system activity, detect unauthorized access attempts, and generate real-time security alerts on a host machine.</p>
+                                    <div class="tag-list">
+                                        <span class="tag">OSSEC</span>
+                                        <span class="tag">HIDS</span>
+                                        <span class="tag">Intrusion Detection</span>
+                                        <span class="tag">Security</span>
+                                    </div>
+                                </div>
+                                <div class="project-entry-links">
+                                    <a href="#" class="proj-link" aria-label="View on GitHub"><i data-lucide="github"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-num">04</span>
+                <span class="section-tag">// CONTACT</span>
+                <h2 class="section-title">Let's Connect</h2>
+            </div>
+            <p class="contact-sub">Interested in collaborating on GN&amp;C, aerospace, or software projects? Let's talk.</p>
+            <div class="contact-list">
+                <a href="mailto:jahsyel.rojas@upr.edu" class="contact-row reveal">
+                    <i data-lucide="mail" class="contact-icon"></i>
+                    <div class="contact-row-info">
+                        <span class="contact-lbl">Email</span>
+                        <span class="contact-val">jahsyel.rojas@upr.edu</span>
+                    </div>
+                    <i data-lucide="arrow-right" class="contact-arrow"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/jahsyel-rojas-software-developer" target="_blank" rel="noopener noreferrer" class="contact-row reveal">
+                    <i data-lucide="linkedin" class="contact-icon"></i>
+                    <div class="contact-row-info">
+                        <span class="contact-lbl">LinkedIn</span>
+                        <span class="contact-val">jahsyel-rojas</span>
+                    </div>
+                    <i data-lucide="arrow-right" class="contact-arrow"></i>
+                </a>
+                <a href="https://github.com/jahsyelrojas" target="_blank" rel="noopener noreferrer" class="contact-row reveal">
+                    <i data-lucide="github" class="contact-icon"></i>
+                    <div class="contact-row-info">
+                        <span class="contact-lbl">GitHub</span>
+                        <span class="contact-val">jahsyelrojas</span>
+                    </div>
+                    <i data-lucide="arrow-right" class="contact-arrow"></i>
+                </a>
+            </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Jahsyel Rojas. All rights reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2025 Jahsyel Rojas &middot; Designed for the cosmos</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/jahsyel-rojas-software-developer" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                <a href="https://github.com/jahsyelrojas" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i data-lucide="github"></i></a>
+            </div>
         </div>
     </footer>
-</body>
 
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
